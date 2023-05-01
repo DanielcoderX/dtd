@@ -8,23 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal:latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
       
-    - name: Set up Crystal
-      uses: crystal-lang/crystal-setup@v1
-      with:
-        crystal-version: latest
-        
-    - name: Generate Documentation
-      run: crystal docs --project-name=${{ github.repository }} --project-version=$(git describe --abbrev=0 --tags) --source-refname=$(git describe --all --exact-match $(git rev-parse HEAD)) --source-url-pattern=${{ github.repository_url }}/blob/${{ github.ref }}/%%FILE%%
+      - name: Generate Documentation
+        run: crystal docs --project-name=${{ github.repository }} --project-version=$(git describe --abbrev=0 --tags) --source-refname=$(git describe --all --exact-match $(git rev-parse HEAD)) --source-url-pattern=${{ github.repository_url }}/blob/${{ github.ref }}/%%FILE%%
       
-    - name: Deploy Docs to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        personal_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/
-        publish_branch: gh-pages
-      env:
-        CI: true
+      - name: Deploy Docs to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/
+          publish_branch: gh-pages
+        env:
+          CI: true

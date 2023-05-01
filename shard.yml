@@ -1,0 +1,12 @@
+name: dtd
+version: 0.1.0
+
+authors:
+  - DanielcoderX <danyalghlaby@gmail.com>
+
+crystal: 1.8.0
+
+license: MIT
+targets:
+  dtd:
+    main: src/dtd.cr

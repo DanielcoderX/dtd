@@ -6,6 +6,9 @@ authors:
 
 crystal: 1.8.0
 
+description: |
+  A module for calculating  the difference between two dates in days, months, and years.
+
 license: MIT
 targets:
   dtd:

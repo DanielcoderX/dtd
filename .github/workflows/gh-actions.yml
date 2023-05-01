@@ -1,0 +1,26 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Crystal
+        uses: crystal-lang/setup-crystal@v1.1.1
+
+      - name: Generate docs
+        run: crystal docs --project-name=${{ github.repository }} --project-version=$(git describe --tags $(git rev-list --tags --max-count=1)) --source-refname=$(git rev-parse --abbrev-ref HEAD) --source-url-pattern=https://github.com/${{ github.repository }}/tree/$(git rev-parse --abbrev-ref HEAD){/dir}{?q} --output-dir=./docs
+
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

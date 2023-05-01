@@ -20,8 +20,9 @@ jobs:
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/
           publish_branch: gh-pages
+          publish_repo: DanielcoderX/dtd
         env:
           CI: true

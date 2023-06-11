@@ -1,6 +1,6 @@
 # dtd
 
-This module provides a convenient way to calculate the difference between two dates in days, months, and years. It offers a simple and effective solution for performing date calculations in Crystal applications.
+This module provides a convenient way to calculate the difference between two dates in days, months, and years. It also offers the ability to calculate the difference between two times in hours, minutes, and seconds. It offers a simple and effective solution for performing date and time calculations in Crystal applications.
 
 ## Installation
 
@@ -16,6 +16,8 @@ This module provides a convenient way to calculate the difference between two da
 
 ## Usage
 
+### Date Difference
+
 ```crystal
 require "dtd"
 
@@ -27,19 +29,33 @@ result = Dtd.date_diff(date1, date2)
 puts "Difference: #{result["years"]} years, #{result["months"]} months, #{result["days"]} days"
 ```
 
+### Time Difference
+
+```crystal
+require "dtd"
+
+time1 = "2022/05/01 10:30:00"
+time2 = "2022/05/01 12:45:30"
+
+result = Dtd.time_diff(time1, time2)
+
+puts "Difference: #{result["hours"]} hours, #{result["minutes"]} minutes, #{result["seconds"]} seconds"
+```
+
 ## Features
 
 - Calculates the difference between two dates in days, months, and years.
+- Calculates the difference between two times in hours, minutes, and seconds.
 - Supports custom time zones for accurate calculations.
-- Returns a Hash that provides the difference in years, months, and days.
-- Handles scenarios where the second date is before the first date.
-- Provides an error message when necessary.
+- Returns a Hash that provides the difference in years, months, days, hours, minutes, and seconds.
+- Handles scenarios where the second date or time is before the first date or time.
+- Provides error messages when necessary.
 
 ## TODO
 
 - Enhance error handling and error messages.
 - Add support for accepting various input formats.
-- Extend functionality to calculate time differences.
+- Improve overall performance and efficiency.
 
 ## Contributing
 

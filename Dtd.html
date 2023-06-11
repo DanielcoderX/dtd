@@ -156,7 +156,14 @@
       <li class="entry-summary">
         <a href="#date_diff%28date1%3AString%2Cdate2%3AString%2Ctime_zone%3AString%3D%22UTC%22%29%3AHash%28String%2CInt32%29%7CHash%28String%2CString%29-class-method" class="signature"><strong>.date_diff</strong>(date1 : String, date2 : String, time_zone : String = <span class="s">&quot;UTC&quot;</span>) : Hash(String, Int32) | Hash(String, String)</a>
         
-          <div class="summary"><h3>Calculates the difference between two dates in days, months, and years.</h3></div>
+          <div class="summary"><p>Calculates the difference between two dates in days, months, and years.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#time_diff%28time1%3AString%2Ctime2%3AString%2Ctime_zone%3AString%3D%22UTC%22%29%3AHash%28String%2CInt32%7CInt64%29%7CHash%28String%2CInt32%29%7CHash%28String%2CString%29-class-method" class="signature"><strong>.time_diff</strong>(time1 : String, time2 : String, time_zone : String = <span class="s">&quot;UTC&quot;</span>) : Hash(String, Int32 | Int64) | Hash(String, Int32) | Hash(String, String)</a>
+        
+          <div class="summary"><p>Calculates the difference between two times in hours, minutes, and seconds.</p></div>
         
       </li>
     
@@ -194,18 +201,50 @@
       
         <div class="doc">
           
-          <h3>Calculates the difference between two dates in days, months, and years.</h3>
-<p>    date1     - The first date in the format YYYY/MM/DD (String).</p>
-<p>    date2     - The second date in the format YYYY/MM/DD (String).</p>
-<p>    time_zone - The time zone in which the dates are specified (String, default: &quot;UTC&quot;).</p>
-<p><b>Examples:</b></p>
-<p>   Dtd.date_diff(&quot;2022/04/30&quot;, &quot;2022/05/01&quot;)
-  =&gt; {&quot;years&quot; =&gt; 0, &quot;months&quot; =&gt; 0, &quot;days&quot; =&gt; 1}</p>
-<p>Returns a Hash containing the difference in years, months, and days, or an error Hash.</br>
- If the difference is positive, the Hash contains the keys &quot;years&quot;, &quot;months&quot;, and &quot;days&quot;
-with their respective integer values.</br>  If date2 is before date1, the Hash contains the key
-&quot;error&quot; with the value &quot;Date 2 is before date 1.&quot;.</br>  If the difference is 0, the Hash
-contains the keys &quot;years&quot;, &quot;months&quot;, and &quot;days&quot; with the value 0 for each.</p>
+          <p>Calculates the difference between two dates in days, months, and years.</p>
+<p>date1     - The first date in the format YYYY/MM/DD (String).
+date2     - The second date in the format YYYY/MM/DD (String).
+time_zone - The time zone in which the dates are specified (String, default: &quot;UTC&quot;).</p>
+<p>Examples:
+Dtd.date_diff(&quot;2022/04/30&quot;, &quot;2022/05/01&quot;)
+=&gt; {&quot;years&quot; =&gt; 0, &quot;months&quot; =&gt; 0, &quot;days&quot; =&gt; 1}</p>
+<p>Returns a Hash containing the difference in years, months, and days, or an error Hash.
+If the difference is positive, the Hash contains the keys &quot;years&quot;, &quot;months&quot;, and &quot;days&quot;
+with their respective integer values.
+If date2 is before date1, the Hash contains the key &quot;error&quot; with the value &quot;Date 2 is before date 1.&quot;
+If the difference is 0, the Hash contains the keys &quot;years&quot;, &quot;months&quot;, and &quot;days&quot; with the value 0 for each.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="/blob/refs/heads/main/%FILE%" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="time_diff(time1:String,time2:String,time_zone:String=&quot;UTC&quot;):Hash(String,Int32|Int64)|Hash(String,Int32)|Hash(String,String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>time_diff</strong>(time1 : String, time2 : String, time_zone : String = <span class="s">&quot;UTC&quot;</span>) : Hash(String, Int32 | Int64) | Hash(String, Int32) | Hash(String, String)
+
+        <a class="method-permalink" href="#time_diff%28time1%3AString%2Ctime2%3AString%2Ctime_zone%3AString%3D%22UTC%22%29%3AHash%28String%2CInt32%7CInt64%29%7CHash%28String%2CInt32%29%7CHash%28String%2CString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Calculates the difference between two times in hours, minutes, and seconds.</p>
+<p>time1     - The first time in the format YYYY/MM/DD HH:MM:SS (String).
+time2     - The second time in the format YYYY/MM/DD HH:MM:SS (String).
+time_zone - The time zone in which the times are specified (String, default: &quot;UTC&quot;).</p>
+<p>Examples:
+Dtd.time_diff(&quot;2022/01/01 08:45:00&quot;, &quot;2022/01/01 11:30:15&quot;)
+=&gt; {&quot;hours&quot; =&gt; 2, &quot;minutes&quot; =&gt; 45, &quot;seconds&quot; =&gt; 15}</p>
+<p>Returns a Hash containing the difference in hours, minutes, and seconds, or an error Hash.
+If the difference is positive, the Hash contains the keys &quot;hours&quot;, &quot;minutes&quot;, and &quot;seconds&quot;
+with their respective integer values.
+If time2 is before time1, the Hash contains the key &quot;error&quot; with the value &quot;Time 2 is before time 1.&quot;
+If the difference is 0, the Hash contains the keys &quot;hours&quot;, &quot;minutes&quot;, and &quot;seconds&quot; with the value 0 for each.</p>
         </div>
       
       <br/>

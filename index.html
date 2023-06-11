@@ -67,7 +67,7 @@
     <use href="#octicon-link"/>
   </svg>
 </a>dtd</h1>
-<p>This module provides a convenient way to calculate the difference between two dates in days, months, and years. It offers a simple and effective solution for performing date calculations in Crystal applications.</p>
+<p>This module provides a convenient way to calculate the difference between two dates in days, months, and years. It also offers the ability to calculate the difference between two times in hours, minutes, and seconds. It offers a simple and effective solution for performing date and time calculations in Crystal applications.</p>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -89,6 +89,11 @@
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
+<h3><a id="date-difference" class="anchor" href="#date-difference">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Date Difference</h3>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;dtd&quot;</span>
 
 date1 <span class="o">=</span> <span class="s">&quot;2022/04/30&quot;</span>
@@ -97,6 +102,19 @@ date2 <span class="o">=</span> <span class="s">&quot;2022/05/01&quot;</span>
 result <span class="o">=</span> <span class="t">Dtd</span>.date_diff(date1, date2)
 
 puts <span class="s">&quot;Difference: </span><span class="i">#{</span>result[<span class="s">&quot;years&quot;</span>]<span class="i">}</span><span class="s"> years, </span><span class="i">#{</span>result[<span class="s">&quot;months&quot;</span>]<span class="i">}</span><span class="s"> months, </span><span class="i">#{</span>result[<span class="s">&quot;days&quot;</span>]<span class="i">}</span><span class="s"> days&quot;</span></code></pre>
+<h3><a id="time-difference" class="anchor" href="#time-difference">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Time Difference</h3>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;dtd&quot;</span>
+
+time1 <span class="o">=</span> <span class="s">&quot;2022/05/01 10:30:00&quot;</span>
+time2 <span class="o">=</span> <span class="s">&quot;2022/05/01 12:45:30&quot;</span>
+
+result <span class="o">=</span> <span class="t">Dtd</span>.time_diff(time1, time2)
+
+puts <span class="s">&quot;Difference: </span><span class="i">#{</span>result[<span class="s">&quot;hours&quot;</span>]<span class="i">}</span><span class="s"> hours, </span><span class="i">#{</span>result[<span class="s">&quot;minutes&quot;</span>]<span class="i">}</span><span class="s"> minutes, </span><span class="i">#{</span>result[<span class="s">&quot;seconds&quot;</span>]<span class="i">}</span><span class="s"> seconds&quot;</span></code></pre>
 <h2><a id="features" class="anchor" href="#features">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -104,10 +122,11 @@ puts <span class="s">&quot;Difference: </span><span class="i">#{</span>result[<s
 </a>Features</h2>
 <ul>
 <li>Calculates the difference between two dates in days, months, and years.</li>
+<li>Calculates the difference between two times in hours, minutes, and seconds.</li>
 <li>Supports custom time zones for accurate calculations.</li>
-<li>Returns a Hash that provides the difference in years, months, and days.</li>
-<li>Handles scenarios where the second date is before the first date.</li>
-<li>Provides an error message when necessary.</li>
+<li>Returns a Hash that provides the difference in years, months, days, hours, minutes, and seconds.</li>
+<li>Handles scenarios where the second date or time is before the first date or time.</li>
+<li>Provides error messages when necessary.</li>
 </ul>
 <h2><a id="todo" class="anchor" href="#todo">
   <svg class="octicon-link" aria-hidden="true">
@@ -117,7 +136,7 @@ puts <span class="s">&quot;Difference: </span><span class="i">#{</span>result[<s
 <ul>
 <li>Enhance error handling and error messages.</li>
 <li>Add support for accepting various input formats.</li>
-<li>Extend functionality to calculate time differences.</li>
+<li>Improve overall performance and efficiency.</li>
 </ul>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">

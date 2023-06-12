@@ -1,7 +1,7 @@
 # Module Dtd provides methods for calculating the difference between two dates.
 module Dtd
   # The current version of the Dtd module.
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 
   # Calculates the difference between two dates in days, months, and years.
   #
